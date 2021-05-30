@@ -1,10 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <title>User Registration</title>
+    <style type="text/css">
+        html {
+            height: 100%;
+        }
+        body {
+            margin:0;
+            padding:0;
+            font-family: sans-serif;
+            background: linear-gradient(#141e30, #243b55);
+        }
 
+        .login {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            padding: 40px;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,.5);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.6);
+            border-radius: 10px;
+        }
+
+        .login h1 {
+            margin: 0 0 30px;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .login .input-box {
+            position: relative;
+        }
+
+        .login .input-box input {
+            width: 70%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background: transparent;
+        }
+
+        .login .input-box label {
+            position: absolute;
+            top:0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            pointer-events: none;
+            transition: .5s;
+        }
+        .login .status-box{
+            position: relative;
+        }
+        .login .status-box label {
+            position: absolute;
+            top:0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            pointer-events: none;
+            transition: .5s;
+        }
+        .login form button {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #03e9f4;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            margin-top: 40px;
+            letter-spacing: 4px
+        }
+        .radios {
+            width: 70%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 30px;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+        .login button:hover {
+            background: #03e9f4;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #03e9f4,
+            0 0 25px #03e9f4,
+            0 0 50px #03e9f4,
+            0 0 100px #03e9f4;
+        }
+
+        .login button {
+            position: absolute;
+            display: block;
+        }
+        span {
+            color: red;
+            font-style: italic;
+        }
+        </style>
+          </head>
+            <body>
+                      <div align="center" class = "login">
+        <h1>Input Details</h1>
+        <form action="#" th:action="@{/}" method="post" th:object="${emp}">
+        <div class ="input-box">
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" /> <br/>
+        </div>
+        <div class = "status-box">
+        <label>Status:</label>
+        <div class = "radios">
+        <input type = "radio" th:field="*{status}" value="Faculty" checked= "checked"/>Faculty
+        <input type = "radio" th:field="*{status}" value="Staff"/>Staff<br/>
+        </div>
+        </div>
+        <button type = "submit">View</button>
+      </form>
+     </div>
 </body>
 </html>
